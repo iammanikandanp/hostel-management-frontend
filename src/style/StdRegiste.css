@@ -1,0 +1,34 @@
+.reg-container {
+    display: flex;
+    justify-content:space-around;
+    align-items: center;
+    height: max-content;
+    position: relative;
+    width: 100%;
+    overflow: hidden; 
+  }
+  
+  .reg-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("../assets/img/image-19.webp");
+    background-repeat: no-repeat;
+    background-size: cover;
+    filter: blur(2px); 
+    z-index: -1; 
+  }
+  .reg-container::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); 
+    z-index: -1;
+  }
+  
