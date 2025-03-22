@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import "../style/OutPass.css"
-import axios from 'axios'
+import "../style/Outpass.css"
+
 import { useNavigate } from 'react-router-dom'
 import { useSnackbar } from 'notistack'
 import { gsap } from 'gsap'
