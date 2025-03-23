@@ -54,38 +54,33 @@ export const DownloadStdFees = () => {
   
     try {
       const canvas = await html2canvas(receiptElement, {
-        scale: window.devicePixelRatio, 
+        scale: 1,
         useCORS: true,
         scrollX: 0,
-        scrollY: 0, 
-        width: receiptElement.scrollWidth, 
-        height: receiptElement.scrollHeight, 
-        windowWidth: document.documentElement.scrollWidth,
-        windowHeight: document.documentElement.scrollHeight,
+        scrollY: 0,
+        windowWidth: receiptElement.scrollWidth,
+        windowHeight: receiptElement.scrollHeight,
       });
   
-      const imgData = canvas.toDataURL("image/png", 0.8);
+      const imgData = canvas.toDataURL("image/png", 1.0);
       const pdf = new jsPDF("p", "mm", "a4");
   
-      let imgWidth = 210; 
-      let imgHeight = (canvas.height * imgWidth) / canvas.width; 
+      const imgWidth = 210;
+      const imgHeight = (canvas.height * imgWidth) / canvas.width;
   
       if (imgHeight > 297) {
-  
-        let y = 10;
-        while (canvas.height > 0) {
-          pdf.addImage(imgData, "PNG", 0, y, imgWidth, imgHeight);
-          canvas.height -= 297;
-          y += 297;
-          if (canvas.height > 0) pdf.addPage();
-        }
+        const scaleFactor = 297 / imgHeight;
+        const newWidth = imgWidth * scaleFactor;
+        const newHeight = imgHeight * scaleFactor;
+        pdf.addImage(imgData, "PNG", 5, 5, newWidth - 10, newHeight - 10);
       } else {
-        pdf.addImage(imgData, "PNG", 0, 10, imgWidth, imgHeight);
+        pdf.addImage(imgData, "PNG", 5, 5, imgWidth - 10, imgHeight - 10);
       }
   
       pdf.save(`Fees_Receipt_${student?.name}.pdf`);
     } catch (error) {
       enqueueSnackbar("Error generating PDF!", { variant: "error" });
+      console.error("PDF Generation Error:", error);
     } finally {
       setDownloading(false);
     }
