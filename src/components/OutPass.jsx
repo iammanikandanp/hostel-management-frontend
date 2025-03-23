@@ -173,7 +173,7 @@ export const OutPass = () => {
 
 
                   <label htmlFor="outtime" className='block  text-green-500'>OutTime</label>
-                  <div className="grid grid-cols-2">
+                  <div className="grid grid-col-1 md:grid-cols-2 ">
 
                   <input
                     type="time"
@@ -194,11 +194,11 @@ export const OutPass = () => {
                  </div>
                  <div className="grid">
                  <label htmlFor="intime" className='block  text-green-500'>InTime</label>
-                 <div className="grid grid-cols-2">
+                 <div className="grid grid-col-1 md:grid-cols-2 ">
                   <input
                     type="time"
                     name="timein"
-                    className="w-[200px] p-2 border rounded-md mr-3 outline-green-600"
+                    className="w-[200px] p-2 border rounded-md mr-3 mb-3 outline-green-600"
                     id='intime'
                     value={student.timein}
                     onChange={handleChange}

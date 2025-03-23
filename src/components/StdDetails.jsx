@@ -62,12 +62,12 @@ export const StdDetails = () => {
             <th className="border p-2">Roll No</th>
             <th className="border p-2">Name</th>
             <th className="border p-2">Class</th>
-            <th className="border p-2 hidden md:table-cell">Department</th>
-            <th className="border p-2 hidden lg:table-cell">DOB</th>
-            <th className="border p-2 hidden lg:table-cell">Address</th>
-            <th className="border p-2 hidden xl:table-cell">City</th>
+            <th className="border p-2  md:table-cell">Department</th>
+            <th className="border p-2  lg:table-cell">DOB</th>
+            <th className="border p-2  lg:table-cell">Address</th>
+            <th className="border p-2  xl:table-cell">City</th>
             <th className="border p-2">Phone</th>
-            <th className="border p-2 hidden lg:table-cell">Parent Phone</th>
+            <th className="border p-2  lg:table-cell">Parent Phone</th>
             <th className="border p-2">Year</th>
             <th className="border p-2">Edit</th>
             <th className="border p-2">Status</th>
@@ -82,12 +82,12 @@ export const StdDetails = () => {
                 <td className="border p-2">{student.rollno}</td>
                 <td className="border p-2">{student.name}</td>
                 <td className="border p-2">{student.class}</td>
-                <td className="border p-2 hidden md:table-cell">{student.dept}</td>
-                <td className="border p-2 hidden lg:table-cell">{student.dob}</td>
-                <td className="border p-2 hidden lg:table-cell">{student.address}</td>
-                <td className="border p-2 hidden xl:table-cell">{student.city}</td>
+                <td className="border p-2  md:table-cell">{student.dept}</td>
+                <td className="border p-2  lg:table-cell">{student.dob}</td>
+                <td className="border p-2  lg:table-cell">{student.address}</td>
+                <td className="border p-2  xl:table-cell">{student.city}</td>
                 <td className="border p-2">{student.phno}</td>
-                <td className="border p-2 hidden lg:table-cell">{student.parentphno}</td>
+                <td className="border p-2  lg:table-cell">{student.parentphno}</td>
                 <td className="border p-2">{student.year}</td>
                 <td className="border p-2 text-center">
                   <Link to={`/update/${student._id}`} className="text-blue-500">
