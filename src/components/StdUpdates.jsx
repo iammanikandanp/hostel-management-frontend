@@ -31,7 +31,7 @@ export const StdUpdates = () => {
       try {
         setLoading(true)
         const token = localStorage.getItem("token")
-        const response = await CustomBaseURL.get(`/std/update/${id}`, {
+        const response = await CustomBaseUrl.get(`/std/update/${id}`, {
           headers: {
             token: token,
           },
