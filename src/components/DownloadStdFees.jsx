@@ -14,7 +14,7 @@ export const DownloadStdFees = () => {
   const { enqueueSnackbar } = useSnackbar();
   const { id } = useParams();
   const [loading, setLoading] = useState(false);
-  const [downloading, setDownloading] = useState(false); // Added downloading state
+  const [downloading, setDownloading] = useState(false); 
   const receiptRef = useRef(null);
 
   useEffect(() => {
@@ -47,27 +47,35 @@ export const DownloadStdFees = () => {
   }, [id, enqueueSnackbar]);
 
   const handleClick = async () => {
-    setDownloading(true); // Start loading animation
+    setDownloading(true);
     const receiptElement = receiptRef.current;
-
+  
     if (!receiptElement) return;
-
+  
     try {
-      const canvas = await html2canvas(receiptElement, { scale: 1 });
+      const canvas = await html2canvas(receiptElement, {
+        scale: window.devicePixelRatio, 
+        useCORS: true,
+        scrollX: 0,
+        scrollY: -window.scrollY,
+        width: receiptElement.scrollWidth, 
+        height: receiptElement.scrollHeight,
+      });
+  
       const imgData = canvas.toDataURL("image/png", 0.6);
-
       const pdf = new jsPDF("p", "mm", "a4");
       const imgWidth = 210;
       const imgHeight = (canvas.height * imgWidth) / canvas.width;
-
+  
       pdf.addImage(imgData, "PNG", 0, 10, imgWidth, imgHeight);
       pdf.save(`Fees_Receipt_${student?.name}.pdf`);
     } catch (error) {
       enqueueSnackbar("Error generating PDF!", { variant: "error" });
     } finally {
-      setDownloading(false); // Stop loading animation
+      setDownloading(false);
     }
   };
+  
 
   return (
     <>
