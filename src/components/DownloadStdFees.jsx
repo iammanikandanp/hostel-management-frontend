@@ -57,17 +57,32 @@ export const DownloadStdFees = () => {
         scale: window.devicePixelRatio, 
         useCORS: true,
         scrollX: 0,
-        scrollY: -window.scrollY,
+        scrollY: 0, 
         width: receiptElement.scrollWidth, 
-        height: receiptElement.scrollHeight,
+        height: receiptElement.scrollHeight, 
+        windowWidth: document.documentElement.scrollWidth,
+        windowHeight: document.documentElement.scrollHeight,
       });
   
-      const imgData = canvas.toDataURL("image/png", 0.6);
+      const imgData = canvas.toDataURL("image/png", 0.8);
       const pdf = new jsPDF("p", "mm", "a4");
-      const imgWidth = 210;
-      const imgHeight = (canvas.height * imgWidth) / canvas.width;
   
-      pdf.addImage(imgData, "PNG", 0, 10, imgWidth, imgHeight);
+      let imgWidth = 210; 
+      let imgHeight = (canvas.height * imgWidth) / canvas.width; 
+  
+      if (imgHeight > 297) {
+  
+        let y = 10;
+        while (canvas.height > 0) {
+          pdf.addImage(imgData, "PNG", 0, y, imgWidth, imgHeight);
+          canvas.height -= 297;
+          y += 297;
+          if (canvas.height > 0) pdf.addPage();
+        }
+      } else {
+        pdf.addImage(imgData, "PNG", 0, 10, imgWidth, imgHeight);
+      }
+  
       pdf.save(`Fees_Receipt_${student?.name}.pdf`);
     } catch (error) {
       enqueueSnackbar("Error generating PDF!", { variant: "error" });
@@ -75,6 +90,7 @@ export const DownloadStdFees = () => {
       setDownloading(false);
     }
   };
+  
   
 
   return (
