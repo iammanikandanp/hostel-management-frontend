@@ -111,7 +111,7 @@ const handleSubmit=async(e)=>{
           >
             
             {loading && (
-          <div className="fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-50">
+            <div className="fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-50">
             <div className="loader border-4 border-blue-500 border-t-transparent rounded-full w-16 h-16 animate-spin"></div>
           </div>
         )}

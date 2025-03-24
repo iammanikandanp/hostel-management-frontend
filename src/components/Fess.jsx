@@ -143,9 +143,9 @@ export const Fess = () => {
     <div className="reg-container flex justify-center items-center min-h-screen">
       <div className="bg-black bg-opacity-45 shadow-lg rounded-lg p-6 w-full max-w-6xl flex flex-col md:flex-row gap-6 overflow-auto">
         {loading && (
-          <div className="fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-50 z-10">
-            <div className="loader border-4 border-blue-500 border-t-transparent rounded-full w-16 h-16 animate-spin"></div>
-          </div>
+           <div className="fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-50">
+           <div className="loader border-4 border-blue-500 border-t-transparent rounded-full w-16 h-16 animate-spin"></div>
+         </div>
         )}
   
         <form onSubmit={handleFees} className="w-full flex flex-col md:flex-row gap-6">

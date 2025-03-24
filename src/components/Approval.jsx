@@ -66,9 +66,9 @@ export const Approval = () => {
       </h1>
 
       {loading && (
-        <div className="fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-50">
-          <div className="loader border-t-4 border-blue-500 rounded-full w-12 h-12 animate-spin"></div>
-        </div>
+         <div className="fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-50">
+         <div className="loader border-4 border-blue-500 border-t-transparent rounded-full w-16 h-16 animate-spin"></div>
+       </div>
       )}
 
       <div className="overflow-x-auto">

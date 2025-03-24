@@ -84,9 +84,9 @@ gsap.fromTo("input",{opacity:0,y:20},{opacity:1,y:0,duration:1,stagger:0.5})
         <h2 className="text-2xl font-bold text-center text-white mb-4">Complaint Form</h2>
 
         {loading && (
-          <div className="flex justify-center items-center mb-4">
-            <div className="w-12 h-12 border-4 border-dashed border-blue-600 rounded-full animate-spin"></div>
-          </div>
+           <div className="fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-50">
+           <div className="loader border-4 border-blue-500 border-t-transparent rounded-full w-16 h-16 animate-spin"></div>
+         </div>
         )}
 
         <form onSubmit={handleSubmit}>

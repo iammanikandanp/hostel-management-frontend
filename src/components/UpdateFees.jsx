@@ -130,7 +130,7 @@ export const UpdateFess = () => {
   return (
     <div className="reg-container flex flex-col items-center justify-center min-h-screen  p-4 ">
       {loading && (
-        <div className="fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-50">
+          <div className="fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-50">
           <div className="loader border-4 border-blue-500 border-t-transparent rounded-full w-16 h-16 animate-spin"></div>
         </div>
       )}
